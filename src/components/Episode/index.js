@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 import { useMediaPredicate } from "react-media-hook";
+
 import { useEpisode } from "../../api";
 
 const Episode = () => {
@@ -9,7 +10,7 @@ const Episode = () => {
   const { episode, isLoading, isError } = useEpisode(episodeId);
   const checkIfMediumPlus = useMediaPredicate("(min-width: 800px)");
 
-  if (isError) return <div>Something went wrong ...</div>;
+  if (isError) return <div>Something went wrong fetching the episode.</div>;
 
   return (
     <>

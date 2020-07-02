@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 
 import { API_URL, SHOW_ID } from '../constants';
 
+// custom hook used to fetch the show data
 export const useShow = () => {
   const [show, setShow] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +32,7 @@ export const useShow = () => {
   return { show, isLoading, isError };
 };
 
+// custom hook used to fetch the show episode list data
 export const useEpisodes = () => {
   const [episodes, setEpisodes] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -60,6 +62,7 @@ export const useEpisodes = () => {
   return { episodes, isLoading, isError };
 };
 
+// custom hook used to fetch the single episode data
 export const useEpisode = (episodeId) => {
   const [episode, setEpisode] = useState({});
   const [isLoading, setIsLoading] = useState(false);

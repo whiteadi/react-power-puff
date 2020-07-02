@@ -1,14 +1,16 @@
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
 import { useMediaPredicate } from "react-media-hook";
+
 import { useShow } from "../../api";
 import EpisodeList from "../EpisodeList";
 
 const Home = () => {
   const { show, isLoading, isError } = useShow();
+  // used to see if we can use a larger image or not
   const checkIfMediumPlus = useMediaPredicate("(min-width: 800px)");
 
-  if (isError) return <div>Something went wrong ...</div>;
+  if (isError) return <div>Something went wrong getting the show.</div>;
 
   return (
     <>
