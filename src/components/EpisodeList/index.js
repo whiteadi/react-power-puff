@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useEpisodes } from '../../api';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useEpisodes } from "../../api";
 
 const EpisodeList = () => {
   const { episodes, isLoading, isError } = useEpisodes();
@@ -13,11 +13,13 @@ const EpisodeList = () => {
       {!isLoading && episodes && episodes.length > 0 && (
         <div>
           <h1>Episodes:</h1>
-          {episodes.map((episode) => (
-            <li key={episode.id}>
-              <Link to={`/${episode.id}`}>{episode.name}</Link>
-            </li>
-          ))}
+          <ul>
+            {episodes.map((episode) => (
+              <li key={episode.id}>
+                <Link to={`/${episode.id}`}>{episode.name}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </>
