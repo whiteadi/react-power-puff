@@ -1,14 +1,14 @@
-import React from "react";
-import ReactHtmlParser from "react-html-parser";
-import { useMediaPredicate } from "react-media-hook";
+import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import { useMediaPredicate } from 'react-media-hook';
 
-import { useShow } from "../../api";
-import EpisodeList from "../EpisodeList";
+import { useShow } from '../../api';
+import EpisodeList from '../EpisodeList';
 
 const Home = () => {
   const { show, isLoading, isError } = useShow();
   // used to see if we can use a larger image or not
-  const checkIfMediumPlus = useMediaPredicate("(min-width: 800px)");
+  const checkIfMediumPlus = useMediaPredicate('(min-width: 800px)');
 
   if (isError) return <div>Something went wrong getting the show.</div>;
 
@@ -29,20 +29,26 @@ const Home = () => {
                   </p>
                 </div>
                 <span className="disc">{ReactHtmlParser(show.summary)}</span>
-                <a
-                  href={`https://www.imdb.com/title/${show.externals.imdb}/`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Read More
-                </a>
+                {show.externals?.imdb && (
+                  <a
+                    href={`https://www.imdb.com/title/${show.externals.imdb}/`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Read More
+                  </a>
+                )}
               </div>
             </div>
             <div className="card_right">
               <div className="img_container">
                 <img
                   src={
-                    checkIfMediumPlus ? show.image.original : show.image.medium
+                    checkIfMediumPlus
+                      ? show.image?.original
+                        ? show.image?.original
+                        : show.image.medium
+                      : show.image.medium
                   }
                   alt=""
                 />

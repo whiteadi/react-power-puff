@@ -1,17 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import "./App.scss";
-import { ReactComponent as Logo } from "./logo.svg";
-import Forofor from "./404-error.png";
+import './App.scss';
+import { ReactComponent as Logo } from './logo.svg';
+import Forofor from './404-error.png';
 
-import Home from "./components/Home";
-import Episode from "./components/Episode";
+import Home from './components/Home';
+import Episode from './components/Episode';
 
 const NoMatchPage = () => {
-  return (
-    <img src={Forofor} alt="404" />
-  );
+  return <img src={Forofor} alt="404" />;
 };
 
 const App = () => {
@@ -19,13 +17,9 @@ const App = () => {
     <>
       <Router>
         <div>
-          <ul>
-            <li>
-              <Link to="/">
-                <Logo />
-              </Link>
-            </li>
-          </ul>
+          <Link to="/">
+            <Logo />
+          </Link>
 
           <hr />
           <Switch>

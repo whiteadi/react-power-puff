@@ -1,14 +1,14 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import ReactHtmlParser from "react-html-parser";
-import { useMediaPredicate } from "react-media-hook";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
+import { useMediaPredicate } from 'react-media-hook';
 
-import { useEpisode } from "../../api";
+import { useEpisode } from '../../api';
 
 const Episode = () => {
   let { episodeId } = useParams();
   const { episode, isLoading, isError } = useEpisode(episodeId);
-  const checkIfMediumPlus = useMediaPredicate("(min-width: 800px)");
+  const checkIfMediumPlus = useMediaPredicate('(min-width: 800px)');
 
   if (isError) return <div>Something went wrong fetching the episode.</div>;
 
@@ -28,7 +28,9 @@ const Episode = () => {
                   <img
                     src={
                       checkIfMediumPlus
-                        ? episode.image.original
+                        ? episode.image?.original
+                          ? episode.image?.original
+                          : episode.image.medium
                         : episode.image.medium
                     }
                     alt={episode.name}
