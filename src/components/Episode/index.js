@@ -19,7 +19,7 @@ const Episode = () => {
         <div className="wrapper">
           <div className="main_card">
             <div className="card_left">
-              <div className="card_datails">
+              <div className="card_details">
                 <h1>{episode.name}</h1>
                 <span className="disc">{ReactHtmlParser(episode.summary)}</span>
               </div>
@@ -30,8 +30,8 @@ const Episode = () => {
                       checkIfMediumPlus
                         ? episode.image?.original
                           ? episode.image?.original
-                          : episode.image.medium
-                        : episode.image.medium
+                          : episode.image?.medium
+                        : episode.image?.medium
                     }
                     alt={episode.name}
                   />

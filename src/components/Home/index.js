@@ -19,7 +19,7 @@ const Home = () => {
         <div className="wrapper">
           <div className="main_card">
             <div className="card_left">
-              <div className="card_datails">
+              <div className="card_details">
                 <h1>{show.name}</h1>
                 <div className="card_cat">
                   <p className="genre">
